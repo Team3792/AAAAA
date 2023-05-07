@@ -43,24 +43,24 @@ function findName(pin){
 
 let pinNames = [
   {
-    name: "Ellis",
-    pin: 118
+    name: "Bill",
+    pin: 0118
   },
   {
-    name: "Caroline",
-    pin: 1181
+    name: "Bob",
+    pin: 0254
   },
   {
-    name: "Louis",
-    pin: 2
+    name: "Billy",
+    pin: 3792
   },
   {
-    name: "Aditi",
-    pin: 11
+    name: "Bonnie",
+    pin: 3141
   },
   {
-    name: "Andy",
-    pin: 21
+    name: "Kraig",
+    pin: 4329
   }
 ]
 1
