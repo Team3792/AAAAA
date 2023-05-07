@@ -1,0 +1,30 @@
+body{
+  background-color: #47e66c;
+}
+
+img{
+  width: 500px;
+  height: (500/2498*2230)px;
+
+}
+div{
+  padding-top: 20px;
+  text-align: center;
+}
+
+p{
+  color:
+white
+;
+  padding: 0px;
+  margin: 0px;
+font-size: 100px;
+
+  font-family: Monospace;
+  font-weight: bold;
+}
+
+#name{
+  font-size:50px;
+  color: #325e32;
+}
