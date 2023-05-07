@@ -3,6 +3,7 @@ body{
 }
 
 img{
+  padding-top: 150px;
   width: 500px;
   height: (500/960*720)px;
 
@@ -26,10 +27,7 @@ font-size: 100px;
 
 
 div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
+
 }
 
 
