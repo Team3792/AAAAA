@@ -6,14 +6,14 @@ addEventListener("keydown", (event) => {
     document.getElementById("pin").innerHTML = "";
     document.getElementById("name").innerHTML = "";
     document.getElementById("logo").style.width = '500px';
-      document.getElementById("logo").style.height = '446px';
+      document.getElementById("logo").style.height = '375px';
 
   }else if(event.key == "Backspace"){
     document.getElementById("pin").innerHTML = document.getElementById("pin").innerHTML.slice(0, -1);
     document.getElementById("name").innerHTML = findName(document.getElementById("pin").innerHTML);
     if(document.getElementById("pin").innerHTML == ""){
       document.getElementById("logo").style.width = '500px';
-        document.getElementById("logo").style.height = '446px';
+        document.getElementById("logo").style.height = '375px';
     }
   }else{
     let key = parseInt(event.key);
@@ -39,28 +39,3 @@ function findName(pin){
   }
   return "";
 }
-
-
-let pinNames = [
-  {
-    name: "Bill",
-    pin: 0118
-  },
-  {
-    name: "Bob",
-    pin: 0254
-  },
-  {
-    name: "Billy",
-    pin: 3792
-  },
-  {
-    name: "Bonnie",
-    pin: 3141
-  },
-  {
-    name: "Kraig",
-    pin: 4329
-  }
-]
-1
