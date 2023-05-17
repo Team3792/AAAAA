@@ -12,6 +12,7 @@ addEventListener("keydown", (event) => {
     document.getElementById("pin").innerHTML = document.getElementById("pin").innerHTML.slice(0, -1);
     document.getElementById("name").innerHTML = findName(document.getElementById("pin").innerHTML);
     if(document.getElementById("pin").innerHTML == ""){
+        document.getElementById("name").innerHTML = "";
       document.getElementById("logo").style.width = '500px';
         document.getElementById("logo").style.height = '375px';
     }
