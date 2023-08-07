@@ -13,5 +13,8 @@ let pinNames = [
 	{name:'Jiya Shetty',pin:'1077'},
 	{name:'Iris Ma',pin:'1254'},
 	{name:'Marco Stefanutti',pin:'2907'},
-	{name:'Max Angle',pin:'9860'}
+	{name:'Max Angle',pin:'9860'},
+	{name:'Andy Liu',pin:6969},
+	{name:'Michael Powell',pin:3069}
+
 ];
