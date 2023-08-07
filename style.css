@@ -30,6 +30,19 @@ div {
 
 }
 
+#clockDirection{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 75px;
+  color: #325e32;
+
+  background: white;
+  width: 150px;
+  border-radius: 10px;
+  font-family: Monospace;
+}
+
 
 
 #name{
