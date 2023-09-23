@@ -25,8 +25,15 @@ let pinNames = [
 	{name:'Ethan Childs',pin:'7264'},
 	{name:'Laya Anand',pin:'1104'},
 	{name:'Vu Tran',pin:'6174'},
-	{name:'Aditi Patel',pin:'7216'},
-	{name:'Vani Kumar',pin:'1027'},
 	{name:'Andrew Inn',pin:'9668'}
-
+	{name:'Jonghwi Ha',pin:'1357'},
+	{name:'Jenna Lin',pin:'2657'},
+	{name:'Aneeeh Calyam',pin:'2465'},
+	{name:'Claire Guo',pin:'1508'},
+	{name:'Clayton veverka ',pin:'0125'},
+	{name:'Caleb Humfeld ',pin:'2306'},
+	{name:'Anna Durham',pin:'1350'},
+	{name:'Clayton VeVerka ',pin:'0125'}
+	{name:'Vani Kumar',pin:'1027'},
+	{name:'Aditi Patel',pin:'7216},
 ];
