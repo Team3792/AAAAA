@@ -67,28 +67,29 @@ addEventListener("keydown", (event) => {
 
 
   }else if(event.key == "Backspace"){
-    if(document.getElementById("pin").innerHTML == ""){
-        document.getElementById("name").innerHTML = "";
-      document.getElementById("logo").style.width = '500px';
-        document.getElementById("logo").style.height = '375px';
-        document.getElementById("clockDirection").innerHTML="";
-    }
+   
     document.getElementById("pin").innerHTML = document.getElementById("pin").innerHTML.slice(0, -1);
     pinTyped=pinTyped.slice(0, -1);
     let name = findName(pinTyped.innerHTML);
     document.getElementById("name").innerHTML = (name=="Not Valid")?"":name;
-
-  }else if(event.key=="+" || event.key=="-"){
-    console.log("signalling clock direction")
-    document.getElementById("clockDirection").innerHTML = (event.key=="-")? "In":"Out"
-    document.getElementById("logo").style.width = '0px';
-      document.getElementById("logo").style.height = '0px';
+    if(document.getElementById("pin").innerHTML == ""){
+      document.getElementById("name").innerHTML = "";
+    document.getElementById("logo").style.width = '500px';
+      document.getElementById("logo").style.height = '375px';
+      document.getElementById("clockDirection").innerHTML="";
+  }
+  // }else if(event.key=="+" || event.key=="-"){
+  //   console.log("signalling clock direction")
+  //   document.getElementById("clockDirection").innerHTML = (event.key=="-")? "In":"Out"
+  //   document.getElementById("logo").style.width = '0px';
+  //     document.getElementById("logo").style.height = '0px';
 
   }else{
 
 
     let key = parseInt(event.key);
-    if(key>=0 && document.getElementById("clockDirection").innerHTML.length !="0"){
+    // if(key>=0 && document.getElementById("clockDirection").innerHTML.length !="0"){
+     if(key>=0){
       if(document.getElementById("pin").innerHTML.length<4){
     document.getElementById("pin").innerHTML += "*";
     pinTyped+= key;
