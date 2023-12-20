@@ -1,16 +1,35 @@
 let x = localStorage.getItem("unlocked");
-let unlocked=true;
+let unlocked = true;
 let pinTyped = "";
 
-if(x==undefined){
+if(!navigator.onLine)
+{
+  offLine();
+}
+
+if(x == undefined){
 unlocked = false;
 }
 if(unlocked){
   document.getElementById("name").innerHTML = "";
 }
+
+window.addEventListener("offline", () => offLine());
+window.addEventListener("online", () => onLine());
 //this will keep track of when the admin pasword has been put in
 
+function offLine(){
+  console.log("offLine");
+  document.getElementById("logo").src = "offLine.png";
+}
+
+function onLine(){
+  console.log("onlien");
+  document.getElementById("logo").src = "Army Ants Logo - White Circle.png";
+}
+
 addEventListener("keydown", (event) => {
+
   if(!unlocked){
 
     console.log(event.key);
@@ -53,7 +72,7 @@ addEventListener("keydown", (event) => {
 
 
 
-  }else{
+  }else if(navigator.onLine){
   console.log(event.key);
 
   if(event.key == "Enter" && findName(pinTyped) != "Not Valid"){
@@ -67,7 +86,7 @@ addEventListener("keydown", (event) => {
 
 
   }else if(event.key == "Backspace"){
-   
+
     document.getElementById("pin").innerHTML = document.getElementById("pin").innerHTML.slice(0, -1);
     pinTyped=pinTyped.slice(0, -1);
     let name = findName(pinTyped.innerHTML);
@@ -101,6 +120,7 @@ addEventListener("keydown", (event) => {
   }
 }
 }
+
 })
 
 function submit(clockingDirection){

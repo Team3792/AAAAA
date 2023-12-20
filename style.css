@@ -4,8 +4,9 @@ body{
 
 img{
   padding-top: 150px;
-  width: 500px;
-  height: (500/960*720)px;
+  /* width: 500px; */
+  height: 375px;
+  /* height: (500/960*720)px; */
 
 }
 div{
