@@ -1,12 +1,16 @@
 let x = localStorage.getItem("unlocked");
 let unlocked = true;
 let pinTyped = "";
+const queTime = 10; //Number of seconds between each submit
+let que = [];
+let departments = ["programming.png", "cad.png", "fabrication.png", ""];
 
 if(!navigator.onLine)
 {
   offLine();
 }
-
+setInterval(releaseQue, queTime * 1000);
+document.getElementById("department").style.height = '0px';
 if(x == undefined){
 unlocked = false;
 }
@@ -31,7 +35,7 @@ function onLine(){
 addEventListener("keydown", (event) => {
 
   if(!unlocked){
-
+    document.getElementById("department").style.height = '0px';
     console.log(event.key);
 
     if(event.key == "Enter" && pinTyped==271828){
@@ -76,7 +80,8 @@ addEventListener("keydown", (event) => {
   console.log(event.key);
 
   if(event.key == "Enter" && findName(pinTyped) != "Not Valid"){
-    submit(document.getElementById("clockDirection").innerHTML);
+    que.push(pinTyped);
+    document.getElementById("department").style.height = '0px';
     document.getElementById("pin").innerHTML = "";
     pinTyped="";
     document.getElementById("name").innerHTML = "";
@@ -86,7 +91,7 @@ addEventListener("keydown", (event) => {
 
 
   }else if(event.key == "Backspace"){
-
+    document.getElementById("department").style.height = '0px';
     document.getElementById("pin").innerHTML = document.getElementById("pin").innerHTML.slice(0, -1);
     pinTyped=pinTyped.slice(0, -1);
     let name = findName(pinTyped.innerHTML);
@@ -113,9 +118,22 @@ addEventListener("keydown", (event) => {
     document.getElementById("pin").innerHTML += "*";
     pinTyped+= key;
     let name = findName(pinTyped);
-    document.getElementById("name").innerHTML = (name=="Not Valid")?"":name;
+    let dep = findDep(pinTyped);
+    if(name != "Not Valid"){
+      console.log(dep);
+      document.getElementById("department").src = departments[dep];
+      //console.log(name);
+      //console.log("Showing department");
+      document.getElementById("department").style.height = '100px';
+      document.getElementById("name").innerHTML = name;
+    } else{
+      document.getElementById("department").style.height = '0px';
+      document.getElementById("name").innerHTML = "";
+    }
+
     document.getElementById("logo").style.width = '0px';
       document.getElementById("logo").style.height = '0px';
+
     }
   }
 }
@@ -123,16 +141,31 @@ addEventListener("keydown", (event) => {
 
 })
 
-function submit(clockingDirection){
-  let pin = pinTyped;
+function submit(pin){1
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdWdMnapSuoJuENKVPyx0qksRUrDHAVPaKbHlOD7HtnKSZ2Zg/formResponse?usp=pp_url&entry.101403101="+pin+"&entry.1517704973="+"&submit=Submit");
+}
 
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdWdMnapSuoJuENKVPyx0qksRUrDHAVPaKbHlOD7HtnKSZ2Zg/formResponse?usp=pp_url&entry.101403101="+pin+"&entry.1517704973="+clockingDirection+"&submit=Submit");
+function releaseQue(){
+  if(que.length > 0){
+  submit(que[0]);
+  console.log("released: " + que[0]);
+  que.splice(0, 1); //Delete first element of array
+  }
 }
 
 function findName(pin){
   for(let x of pinNames){
     if(x.pin == pin){
       return x.name;
+    }
+  }
+  return "Not Valid";
+}
+
+function findDep(pin){
+  for(let x of pinNames){
+    if(x.pin == pin){
+      return x.department;
     }
   }
   return "Not Valid";
